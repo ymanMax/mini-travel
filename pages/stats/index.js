@@ -1,5 +1,5 @@
 // pages/stats/index.js
-import * as echarts from '../../utils/echarts';
+import * as echarts from 'echarts';
 
 // 模拟数据：济南各景点游客数据（按年）
 const scenicData = {
@@ -36,9 +36,6 @@ const monthlyData = {
   2025: [160000, 150000, 230000, 280000, 360000, 420000, 500000, 480000, 400000, 320000, 230000, 200000]
 };
 
-let pieChart = null;
-let lineChart = null;
-
 Page({
   /**
    * 页面的初始数据
@@ -48,34 +45,26 @@ Page({
     selectedYear: 2025,
     ecPie: {
       echarts: echarts,
-      onInit: function (canvas, width, height, dpr) {
-        pieChart = echarts.init(canvas, null, {
-          width: width,
-          height: height,
-          devicePixelRatio: dpr
-        });
-        canvas.setChart(pieChart);
-        return pieChart;
-      }
+      lazyLoad: false
     },
     ecLine: {
       echarts: echarts,
-      onInit: function (canvas, width, height, dpr) {
-        lineChart = echarts.init(canvas, null, {
-          width: width,
-          height: height,
-          devicePixelRatio: dpr
-        });
-        canvas.setChart(lineChart);
-        return lineChart;
-      }
+      lazyLoad: false
     }
   },
+  
+  // 图表实例
+  pieChart: null,
+  lineChart: null,
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 获取图表实例
+    this.pieChart = this.selectComponent('#pie-chart');
+    this.lineChart = this.selectComponent('#line-chart');
+    
     // 初始化图表
     this.initCharts();
   },
@@ -173,22 +162,35 @@ Page({
           },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: 0, color: 'rgba(82, 196, 26, 0.5)'
-            }, {
-              offset: 1, color: 'rgba(82, 196, 26, 0.1)'
-            }])
+              offset: 0, color: 'rgba(82, 196, 26, 0.5)'}, {
+              offset: 1, color: 'rgba(82, 196, 26, 0.1)'}
+            ])
           }
         }
       ]
     };
 
-    if (pieChart) {
-      pieChart.setOption(pieOption);
-    }
+    // 初始化饼图
+    this.pieChart.init((canvas, width, height, dpr) => {
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height,
+        devicePixelRatio: dpr
+      });
+      chart.setOption(pieOption);
+      return chart;
+    });
 
-    if (lineChart) {
-      lineChart.setOption(lineOption);
-    }
+    // 初始化折线图
+    this.lineChart.init((canvas, width, height, dpr) => {
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height,
+        devicePixelRatio: dpr
+      });
+      chart.setOption(lineOption);
+      return chart;
+    });
   },
 
   /**
@@ -200,8 +202,8 @@ Page({
     const lineData = monthlyData[year];
 
     // 更新饼图数据
-    if (pieChart) {
-      pieChart.setOption({
+    if (this.pieChart.chart) {
+      this.pieChart.chart.setOption({
         legend: {
           data: pieData.map(item => item.name)
         },
@@ -214,8 +216,8 @@ Page({
     }
 
     // 更新折线图数据
-    if (lineChart) {
-      lineChart.setOption({
+    if (this.lineChart.chart) {
+      this.lineChart.chart.setOption({
         series: [
           {
             data: lineData
