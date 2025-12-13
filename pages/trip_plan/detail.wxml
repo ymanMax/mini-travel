@@ -1,0 +1,97 @@
+<!-- 行程基本信息 -->
+<view class="trip-header">
+  <view class="trip-title">{{ tripInfo.name }}</view>
+  <view class="trip-dates">
+    <van-icon name="calendar" size="16" color="#666" />
+    <text class="date-text">{{ tripInfo.startDate }} ~ {{ tripInfo.endDate }}</text>
+    <van-tag type="primary" size="small">{{ tripInfo.days }}天</van-tag>
+  </view>
+  <view class="trip-description" wx:if="{{ tripInfo.description }}">
+    {{ tripInfo.description }}
+  </view>
+</view>
+
+<!-- 统计信息 -->
+<view class="trip-stats">
+  <view class="stat-item">
+    <van-icon name="location-o" size="20" color="#07c160" />
+    <text class="stat-text">{{ tripInfo.spotCount }}个景点</text>
+  </view>
+  <van-divider dashed hairline />
+  <view class="stat-item" wx:if="{{ tripInfo.hotelCount > 0 }}">
+    <van-icon name="home-o" size="20" color="#722ed1" />
+    <text class="stat-text">{{ tripInfo.hotelCount }}家酒店</text>
+  </view>
+  <van-divider dashed hairline wx:if="{{ tripInfo.hotelCount > 0 }}"/>
+  <view class="stat-item" wx:if="{{ tripInfo.restaurantCount > 0 }}">
+    <van-icon name="shop-o" size="20" color="#fa8c16" />
+    <text class="stat-text">{{ tripInfo.restaurantCount }}家餐厅</text>
+  </view>
+</view>
+
+<!-- 天数切换 -->
+<view class="day-tabs">
+  <block wx:for="{{ dayList }}" wx:key="day">
+    <view
+      class="day-tab {{ currentDay === item.day ? 'active' : '' }}"
+      bindtap="switchDay"
+      data-day="{{ item.day }}"
+    >
+      <text class="day-number">第{{ item.day }}天</text>
+      <text class="day-date">{{ item.date }}</text>
+    </view>
+  </block>
+</view>
+
+<!-- 行程安排列表 -->
+<view class="schedule-list" wx:if="{{ tripSchedule[currentDay] && tripSchedule[currentDay].length > 0 }}">
+  <block wx:for="{{ tripSchedule[currentDay] }}" wx:key="id">
+    <view class="schedule-item">
+      <!-- 时间线 -->
+      <view class="timeline">
+        <view class="timeline-dot">
+          <van-icon
+            name="{{ item.type === 'spot' ? 'location-o' : item.type === 'restaurant' ? 'shop-o' : item.type === 'hotel' ? 'home-o' : 'nav' }}"
+            size="14"
+            color="#fff"
+          />
+        </view>
+        <view class="timeline-line {{ index === tripSchedule[currentDay].length - 1 ? 'last' : '' }}"></view>
+      </view>
+
+      <!-- 内容 -->
+      <view class="schedule-content">
+        <view class="schedule-time">{{ item.time }}</view>
+        <view class="schedule-name">{{ item.name }}</view>
+        <view class="schedule-address" bindtap="viewLocation" data-address="{{ item.address }}">
+          <van-icon name="location" size="14" color="#999" />
+          <text class="address-text">{{ item.address }}</text>
+        </view>
+        <view class="schedule-description" wx:if="{{ item.description }}">
+          {{ item.description }}
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 空状态 -->
+<view class="empty-state" wx:else>
+  <van-icon name="calendar-o" size="64" color="#ccc" />
+  <text class="empty-text">当天暂无行程安排</text>
+  <van-button type="primary" size="small" bindtap="addSchedule">
+    添加行程安排
+  </van-button>
+</view>
+
+<!-- 底部操作按钮 -->
+<view class="bottom-bar">
+  <van-button type="default" size="large" bindtap="exportTrip" plain>
+    <van-icon name="download" size="18" />
+    导出行程单
+  </van-button>
+  <van-button type="primary" size="large" bindtap="shareTrip">
+    <van-icon name="share-o" size="18" />
+    分享行程
+  </van-button>
+</view>

@@ -12,7 +12,8 @@ Page({
       { id: 1, title: '景区门票', icon: '../../images/icons/menpiao.png', type: 1, url: '/pages/ticket/index' },
       { id: 2, title: '精品路线', icon: '../../images/icons/luxian.png', type: 2, url: '/pages/rcmmd_route/index' },
       { id: 3, title: '游记攻略', icon: '../../images/icons/gonglve.png', type: 3, url: '/pages/forum/index' },
-      { id: 4, title: '美食推荐', icon: '../../images/icons/meishi.png', type: 4, url: '/pages/rcmmd_food/index' }
+      { id: 4, title: '美食推荐', icon: '../../images/icons/meishi.png', type: 4, url: '/pages/rcmmd_food/index' },
+      { id: 5, title: '行程规划', icon: '../../images/icons/xingcheng.png', type: 5, url: '/pages/trip_plan/index' }
     ],
     tabs: ['玩什么', '吃什么', '住哪里'],
     activeTab: 0,

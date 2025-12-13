@@ -19,7 +19,9 @@
     "pages/pay/index",
     "pages/userInfo/index",
     "pages/verify_order/index",
-    "pages/stats/index"
+    "pages/stats/index",
+    "pages/trip_plan/index",
+    "pages/trip_plan/detail"
   ],
   "permission": {
     "scope.userLocation": {
