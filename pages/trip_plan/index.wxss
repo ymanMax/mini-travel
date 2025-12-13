@@ -1,0 +1,138 @@
+/* 页面背景 */
+page {
+  background: #f5f5f5;
+  font-size: 28rpx;
+}
+
+/* 页面标题 */
+.page-header {
+  padding: 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 创建行程按钮 */
+.create-btn-container {
+  padding: 30rpx;
+}
+
+/* 行程列表 */
+.trip-list {
+  padding: 0 30rpx 30rpx;
+}
+
+/* 行程项 */
+.trip-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.trip-item:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+/* 行程头部 */
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.trip-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 20rpx;
+}
+
+/* 行程信息 */
+.trip-info {
+  border-left: 6rpx solid #1989fa;
+  padding-left: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-text {
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 12rpx;
+}
+
+.day-tag {
+  font-size: 22rpx;
+  color: #fff;
+  background: #1989fa;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  margin-left: auto;
+}
+
+/* 弹窗样式 */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.popup-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group {
+  padding: 30rpx;
+}
+
+.popup-footer {
+  padding: 0 30rpx 30rpx;
+}
+
+.popup-footer .van-button {
+  margin-bottom: 20rpx;
+}
+
+.popup-footer .van-button:last-child {
+  margin-bottom: 0;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 375px) {
+  .trip-item {
+    padding: 20rpx;
+  }
+
+  .trip-name {
+    font-size: 28rpx;
+  }
+
+  .info-text {
+    font-size: 24rpx;
+  }
+}

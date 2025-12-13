@@ -20,7 +20,7 @@ page {
   background: #fff;
 }
 .entry-item {
-  width: 25%;
+  width: 20%;
   text-align: center;
 }
 .entry-icon {

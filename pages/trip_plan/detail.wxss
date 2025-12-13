@@ -1,0 +1,264 @@
+/* 页面背景 */
+page {
+  background: #f5f5f5;
+  font-size: 28rpx;
+  padding-bottom: 120rpx;
+}
+
+/* 行程头部 */
+.trip-header {
+  padding: 30rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.trip-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.trip-dates {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.date-text {
+  font-size: 26rpx;
+  opacity: 0.9;
+  margin-left: 12rpx;
+  margin-right: 16rpx;
+}
+
+.trip-description {
+  font-size: 24rpx;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* 统计信息 */
+.trip-stats {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-text {
+  font-size: 26rpx;
+  color: #333;
+  margin-left: 12rpx;
+}
+
+/* 天数切换 */
+.day-tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 30rpx 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.day-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.day-tab {
+  flex: 0 0 auto;
+  width: 200rpx;
+  padding: 20rpx;
+  margin-right: 20rpx;
+  background: #f5f5f5;
+  border-radius: 16rpx;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.day-tab:last-child {
+  margin-right: 0;
+}
+
+.day-tab.active {
+  background: #1989fa;
+  color: #fff;
+  transform: translateY(-4rpx);
+  box-shadow: 0 8rpx 16rpx rgba(25, 137, 250, 0.3);
+}
+
+.day-number {
+  display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.day-date {
+  display: block;
+  font-size: 22rpx;
+  opacity: 0.8;
+}
+
+/* 行程安排列表 */
+.schedule-list {
+  padding: 0 30rpx;
+}
+
+.schedule-item {
+  display: flex;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+/* 时间线 */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30rpx;
+}
+
+.timeline-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #1989fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timeline-line {
+  width: 2rpx;
+  height: calc(100% + 40rpx);
+  background: #e8e8e8;
+  position: absolute;
+  top: 40rpx;
+  left: 19rpx;
+}
+
+.timeline-line.last {
+  display: none;
+}
+
+/* 行程内容 */
+.schedule-content {
+  flex: 1;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.schedule-time {
+  font-size: 24rpx;
+  color: #1989fa;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.schedule-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.schedule-address {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.address-text {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-left: 12rpx;
+  flex: 1;
+}
+
+.schedule-description {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.6;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 30rpx;
+  background: #fff;
+  margin: 0 30rpx 20rpx;
+  border-radius: 16rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+  margin: 30rpx 0;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+}
+
+.bottom-bar .van-button {
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.bottom-bar .van-button:first-child {
+  margin-left: 0;
+}
+
+.bottom-bar .van-button:last-child {
+  margin-right: 0;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 375px) {
+  .trip-title {
+    font-size: 32rpx;
+  }
+
+  .schedule-content {
+    padding: 20rpx;
+  }
+
+  .schedule-name {
+    font-size: 28rpx;
+  }
+
+  .day-tab {
+    width: 160rpx;
+    padding: 16rpx;
+  }
+}

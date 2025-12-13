@@ -1,0 +1,103 @@
+<!-- 页面标题 -->
+<view class="page-header">
+  <text class="page-title">我的行程</text>
+</view>
+
+<!-- 创建行程按钮 -->
+<view class="create-btn-container">
+  <van-button type="primary" size="large" bindtap="openCreateDialog" block>
+    创建行程
+  </van-button>
+</view>
+
+<!-- 行程列表 -->
+<view class="trip-list" wx:if="{{ tripList.length > 0 }}">
+  <block wx:for="{{ tripList }}" wx:key="id">
+    <view class="trip-item" bindtap="goToTripDetail" data-id="{{ item.id }}">
+      <view class="trip-header">
+        <text class="trip-name">{{ item.name }}</text>
+        <van-icon name="delete" size="20" color="#999" bindtap="deleteTrip" data-id="{{ item.id }}" catchtap />
+      </view>
+
+      <view class="trip-info">
+        <view class="info-item">
+          <van-icon name="calendar" size="16" color="#1989fa" />
+          <text class="info-text">
+            {{ item.startDate }} ~ {{ item.endDate }}
+          </text>
+          <text class="day-tag">{{ item.days }}天</text>
+        </view>
+
+        <view class="info-item">
+          <van-icon name="location-o" size="16" color="#07c160" />
+          <text class="info-text">{{ item.spotCount }}个景点</text>
+        </view>
+
+        <view class="info-item" wx:if="{{ item.hotelCount > 0 }}">
+          <van-icon name="home-o" size="16" color="#722ed1" />
+          <text class="info-text">{{ item.hotelCount }}家酒店</text>
+        </view>
+
+        <view class="info-item" wx:if="{{ item.restaurantCount > 0 }}">
+          <van-icon name="shop-o" size="16" color="#fa8c16" />
+          <text class="info-text">{{ item.restaurantCount }}家餐厅</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 空状态 -->
+<van-empty description="暂无行程" wx:else />
+
+<!-- 创建行程弹窗 -->
+<van-popup
+  show="{{ showCreateDialog }}"
+  position="bottom"
+  round
+  custom-style="height: 60%;"
+  bind:close="closeCreateDialog"
+>
+  <view class="popup-header">
+    <text class="popup-title">创建行程</text>
+    <van-icon name="cross" size="20" color="#999" bindtap="closeCreateDialog" />
+  </view>
+
+  <van-cell-group class="form-group">
+    <van-field
+      name="name"
+      label="行程名称"
+      placeholder="请输入行程名称"
+      value="{{ formData.name }}"
+      data-field="name"
+      bind:change="onInputChange"
+    />
+
+    <van-field
+      name="startDate"
+      label="开始日期"
+      placeholder="请选择开始日期"
+      value="{{ formData.startDate }}"
+      is-link
+      bindtap="onStartDateChange"
+    />
+
+    <van-field
+      name="endDate"
+      label="结束日期"
+      placeholder="请选择结束日期"
+      value="{{ formData.endDate }}"
+      is-link
+      bindtap="onEndDateChange"
+    />
+  </van-cell-group>
+
+  <view class="popup-footer">
+    <van-button size="large" bindtap="closeCreateDialog" block>
+      取消
+    </van-button>
+    <van-button type="primary" size="large" bindtap="createTrip" block>
+      确定创建
+    </van-button>
+  </view>
+</van-popup>
