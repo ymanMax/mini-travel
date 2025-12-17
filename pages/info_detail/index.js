@@ -8,6 +8,12 @@ Page({
     dataInfo: {},
     priceAdult: 0,
     rowData: {},
+    // 互动功能数据
+    isLiked: false,
+    likeCount: 0,
+    isCollected: false,
+    isCommentInputVisible: false,
+    comment: ''
   },
   onLoad(options) {
     this.setData({
@@ -51,10 +57,122 @@ Page({
           priceAdult,
           rowData: res.data,
           dataInfo: result,
+          // 初始化互动数据
+          likeCount: res.data.likeNum || 0,
+          isLiked: res.data.isLike || false,
+          isCollected: res.data.isCollect || false
         });
         return;
       }
       app.toast(res.data);
+    });
+  },
+
+  // 点赞
+  handleLike() {
+    const newIsLiked = !this.data.isLiked;
+    const newLikeCount = newIsLiked ? this.data.likeCount + 1 : this.data.likeCount - 1;
+
+    this.setData({
+      isLiked: newIsLiked,
+      likeCount: newLikeCount
+    });
+
+    // 调用 mock 接口
+    app.request('post', 'applet/travel/operation/like', {
+      dataId: this.data.rowData.id,
+      toUserId: this.data.rowData.createId,
+      isLike: newIsLiked
+    }, (res) => {
+      if (res.code != '0000') {
+        app.toast(res.msg);
+        // 回滚状态
+        this.setData({
+          isLiked: !newIsLiked,
+          likeCount: newIsLiked ? this.data.likeCount - 1 : this.data.likeCount + 1
+        });
+      }
+    });
+  },
+
+  // 收藏
+  handleCollect() {
+    const newIsCollected = !this.data.isCollected;
+
+    this.setData({
+      isCollected: newIsCollected
+    });
+
+    // 调用 mock 接口
+    app.request('post', 'applet/travel/operation/collect', {
+      dataId: this.data.rowData.id,
+      toUserId: this.data.rowData.createId,
+      isCollect: newIsCollected
+    }, (res) => {
+      if (res.code != '0000') {
+        app.toast(res.msg);
+        // 回滚状态
+        this.setData({
+          isCollected: !newIsCollected
+        });
+      }
+    });
+  },
+
+  // 显示评论输入框
+  showCommentInput() {
+    this.setData({
+      isCommentInputVisible: true
+    });
+  },
+
+  // 取消评论
+  cancelComment() {
+    this.setData({
+      isCommentInputVisible: false,
+      comment: ''
+    });
+  },
+
+  // 评论输入
+  bindKeyInput(e) {
+    const val = e.detail.value.replace(/[\r\n]+/g, '');
+    this.setData({
+      comment: val
+    });
+  },
+
+  // 提交评论
+  submitComment() {
+    if (!this.data.comment.trim()) {
+      app.toast('评论内容不能为空');
+      return;
+    }
+
+    // 调用 mock 接口
+    app.request('post', 'applet/travel/comment/createUserComment', {
+      dataId: this.data.rowData.id,
+      parentId: 0,
+      toUserId: null,
+      content: this.data.comment
+    }, (res) => {
+      if (res.code == '0000') {
+        app.toast('评论成功');
+        this.setData({
+          isCommentInputVisible: false,
+          comment: ''
+        });
+        // 可以在这里刷新评论列表
+      } else {
+        app.toast(res.msg);
+      }
+    });
+  },
+
+  // 生成海报
+  generatePoster() {
+    wx.navigateTo({
+      url: '/pages/generate_poster/index?dataId=' + this.data.rowData.id
     });
   },
   /**

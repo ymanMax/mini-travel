@@ -24,6 +24,24 @@
       <textarea class="textarea-field" placeholder="请输入描述内容" maxlength="500" bindinput="onDescriptionInput" value="{{description}}" auto-height="true" maxlength="500" placeholder-style="font-size:28rpx" />
       <view class="word-count">{{description.length}}/500</view>
     </view>
+
+    <!-- 标签输入 -->
+    <view class="form-item">
+      <label class="form-label">标签：</label>
+      <input class="input-field" placeholder="请输入标签，用逗号分隔" bindinput="onTagsInput" value="{{tags}}" placeholder-style="font-size:28rpx"/>
+    </view>
+
+    <!-- @好友 -->
+    <view class="form-item">
+      <label class="form-label">@好友：</label>
+      <picker mode="selector" range="{{friends}}" value="{{selectedFriendIndex}}" range-key="nickName" bindchange="onFriendChange">
+        <view class="picker-text" wx:if="{{ selectedFriendIndex != '' }}">
+          {{friends[selectedFriendIndex].nickName}}
+        </view>
+        <view class="picker-text no_val" wx:else>选择要@的好友</view>
+      </picker>
+    </view>
+
     <label class="form-label">图片：</label>
     <!-- 图片上传区域 -->
     <view class="image-container">

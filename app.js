@@ -1,4 +1,5 @@
 var util = require('./utils/util.js');
+var mock = require('./utils/mock.js');
 
 App({
   onLaunch: function () {
@@ -58,6 +59,16 @@ App({
   // 请求数据Data
   requestData(method, url, data, sucCb, failCb, responseType) {
     var that = this;
+
+    // 优先使用 mock 数据
+    const mockResponse = mock.getMockData(url);
+    if (mockResponse) {
+      that.closeLoading();
+      sucCb(mockResponse);
+      return;
+    }
+
+    // 真实网络请求
     wx.request({
       url,
       data,

@@ -1,0 +1,125 @@
+.container {
+  padding: 20rpx;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* 海报预览 */
+.poster-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.poster-canvas {
+  background: #f5f5f5;
+  border-radius: 10rpx;
+}
+
+/* 表单容器 */
+.form-container {
+  margin-bottom: 30rpx;
+}
+
+.form-item {
+  margin-bottom: 20rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15rpx;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 15rpx;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 5rpx;
+}
+
+/* 图片选择器 */
+.image-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.image-item {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  border: 2px solid #ddd;
+}
+
+.image-item.selected {
+  border-color: #e64340;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 20rpx;
+}
+
+.action-buttons button {
+  flex: 1;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.generate-btn {
+  background: #e64340;
+  color: white;
+}
+
+.save-btn {
+  background: #07c160;
+  color: white;
+}
+
+.save-btn[disabled] {
+  background: #ccc;
+  color: #999;
+}
+
+.share-btn {
+  background: #1890ff;
+  color: white;
+}
+
+.share-btn[disabled] {
+  background: #ccc;
+  color: #999;
+}

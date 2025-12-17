@@ -1,9 +1,9 @@
 <wxs src="/utils/wxmlFunc.wxs" module="tools"></wxs>
 
 <view class="container">
-  <view class="position_f create_box" bindtap="createComment">
-    <view style="margin-right:8rpx">发表</view>
+  <view class="publish-travel-btn" bindtap="createComment">
     <van-icon name="add-o" />
+    <view style="margin-left:8rpx">发布游记</view>
   </view>
   <scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="onReachBottom" wx:if="{{ commentList.length }}">
     <block wx:for="{{commentList}}" wx:key="index">

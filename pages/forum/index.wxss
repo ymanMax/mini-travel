@@ -2,17 +2,16 @@
   padding: 20rpx;
   background: #fff;
 }
-.create_box{
-  top: 30rpx;
-  right: 30rpx;
+.publish-travel-btn{
+  margin-bottom: 20rpx;
   background: #e64340;
   display: flex;
   align-items: center;
-  padding: 8rpx 20rpx;
+  justify-content: center;
+  padding: 16rpx 20rpx;
   color: #fff;
-  font-size: 24rpx;
+  font-size: 28rpx;
   border-radius: 8rpx;
-  z-index: 99999;
 }
 .post-item {
   margin-bottom: 20rpx;
