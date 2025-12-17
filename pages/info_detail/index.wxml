@@ -6,6 +6,36 @@
       <view class="position_a bg_color_white" style="border-radius: 50%;top: 30rpx;right: 30rpx;background: #e64340;padding: 8rpx;" catchtap="toPhone">
         <van-icon size="22" color="#ffffff" name="phone" />
       </view>
+      <!-- 查看天气按钮 -->
+      <view class="position_a bg_color_white" style="border-radius: 50%;top: 100rpx;right: 30rpx;background: #409eff;padding: 8rpx;" catchtap="toggleWeather">
+        <van-icon size="22" color="#ffffff" name="cloud" />
+      </view>
+    </view>
+
+    <!-- 天气信息展示区域 -->
+    <view wx:if="{{ weatherVisible }}" class="weather-container">
+      <view class="weather-header">
+        <view class="weather-scenic">{{ weatherData.scenicName }}</view>
+        <view class="weather-current">
+          <view class="weather-temp">{{ weatherData.temperature }}°C</view>
+          <view class="weather-condition">{{ weatherData.weather }}</view>
+        </view>
+      </view>
+
+      <!-- 未来3天天气预报 -->
+      <view class="weather-forecast">
+        <view class="forecast-item" wx:for="{{ weatherData.forecast }}" wx:key="date">
+          <view class="forecast-date">{{ item.date }}</view>
+          <view class="forecast-weather">{{ item.weather }}</view>
+          <view class="forecast-temp">{{ item.high }}°/{{ item.low }}°</view>
+        </view>
+      </view>
+
+      <!-- 穿衣建议区域 -->
+      <view class="clothing-suggestion">
+        <view class="suggestion-title">穿衣建议</view>
+        <view class="suggestion-content">{{ clothingSuggestion }}</view>
+      </view>
     </view>
     <view style="padding: 24rpx 24rpx 0;">
       <view class="f_size_17 f_weight_bold">开放时间：</view>

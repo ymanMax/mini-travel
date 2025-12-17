@@ -28,3 +28,86 @@
   padding: 6rpx 20rpx;
   background: #ffffff;
 }
+
+/* 天气信息样式 */
+.weather-container {
+  background: linear-gradient(135deg, #409eff 0%, #667eea 100%);
+  color: white;
+  padding: 30rpx;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(64, 158, 255, 0.3);
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.weather-scenic {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.weather-current {
+  text-align: right;
+}
+
+.weather-temp {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.weather-condition {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+/* 天气预报样式 */
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.forecast-item {
+  text-align: center;
+  flex: 1;
+}
+
+.forecast-date {
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.forecast-weather {
+  font-size: 22rpx;
+  margin-bottom: 10rpx;
+}
+
+.forecast-temp {
+  font-size: 20rpx;
+}
+
+/* 穿衣建议样式 */
+.clothing-suggestion {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20rpx;
+  border-radius: 15rpx;
+  backdrop-filter: blur(10rpx);
+}
+
+.suggestion-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.suggestion-content {
+  font-size: 24rpx;
+  line-height: 1.6;
+}
