@@ -19,7 +19,8 @@
     "pages/pay/index",
     "pages/userInfo/index",
     "pages/verify_order/index",
-    "pages/stats/index"
+    "pages/stats/index",
+    "pages/generate_poster/index"
   ],
   "permission": {
     "scope.userLocation": {

@@ -44,6 +44,42 @@
       <towxml nodes="{{ dataInfo }}" />
     </view>
   </view>
+
+  <!-- 互动按钮区域 -->
+  <view class="interaction-buttons" wx:if="{{ detailType == '3' }}">
+    <view class="button" bindtap="handleLike" data-type="like">
+      <van-icon name="like-o" color="#666" wx:if="{{ !isLiked }}" />
+      <van-icon name="like" color="#e64340" wx:else />
+      <text>{{ likeCount }}</text>
+    </view>
+    <view class="button" bindtap="handleCollect" data-type="collect">
+      <van-icon name="star-o" color="#666" wx:if="{{ !isCollected }}" />
+      <van-icon name="star" color="#e64340" wx:else />
+      <text>收藏</text>
+    </view>
+    <view class="button" bindtap="showCommentInput">
+      <van-icon name="chat-o" color="#666" />
+      <text>评论</text>
+    </view>
+    <view class="button" bindtap="onShareAppMessage">
+      <van-icon name="share-o" color="#666" />
+      <text>分享</text>
+    </view>
+    <view class="button" bindtap="generatePoster">
+      <van-icon name="photograph" color="#666" />
+      <text>生成海报</text>
+    </view>
+  </view>
+
+  <!-- 评论输入框 -->
+  <view wx:if="{{ isCommentInputVisible }}" class="comment-input-container">
+    <textarea class="input_value" type="text" bindinput="bindKeyInput" maxlength="150" value="{{ comment }}" placeholder="输入评论..." placeholder-style="font-size:28rpx">
+    </textarea>
+    <view>
+      <button style="background: #bbb;" type="primary" bindtap="cancelComment">取消</button>
+      <button type="primary" bindtap="submitComment">评论</button>
+    </view>
+  </view>
   <view wx:if="{{ detailType == '0' && priceAdult > 0 }}" class="position_f buy flex align-items-center" catch:tap="toPay">
     <text>线上购票</text>
     <text>：￥{{ priceAdult }}</text>

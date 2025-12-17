@@ -7,10 +7,14 @@ Page({
     title: "", // 标题输入内容
     scenicSpots: [], // 景点列表
     selectedSpotIndex: '', // 选中景点索引
-    description: "" // 描述内容
+    description: "", // 描述内容
+    tags: "", // 标签
+    friends: [], // 好友列表
+    selectedFriendIndex: '' // 选中好友索引
   },
   onLoad() {
     this.getDict()
+    this.getFriendsList()
   },
   getDict() {
     app.request('post', 'applet/travel/scenic/getPageList', {
@@ -50,6 +54,34 @@ Page({
   onDescriptionInput(e) {
     this.setData({
       description: e.detail.value
+    });
+  },
+
+  // 标签输入事件
+  onTagsInput(e) {
+    this.setData({
+      tags: e.detail.value
+    });
+  },
+
+  // 好友选择事件
+  onFriendChange(e) {
+    this.setData({
+      selectedFriendIndex: e.detail.value
+    });
+  },
+
+  // 获取好友列表
+  getFriendsList() {
+    // 使用 mock 数据
+    const friends = [
+      { id: 1, nickName: '张三' },
+      { id: 2, nickName: '李四' },
+      { id: 3, nickName: '王五' },
+      { id: 4, nickName: '赵六' }
+    ];
+    this.setData({
+      friends: friends
     });
   },
 

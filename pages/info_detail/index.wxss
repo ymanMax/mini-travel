@@ -28,3 +28,52 @@
   padding: 6rpx 20rpx;
   background: #ffffff;
 }
+
+/* 互动按钮样式 */
+.interaction-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx;
+  border-top: 1px solid #eee;
+  margin-top: 20rpx;
+}
+
+.interaction-buttons .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.interaction-buttons .button text {
+  margin-top: 8rpx;
+}
+
+/* 评论输入框样式 */
+.comment-input-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-end;
+  padding: 20rpx;
+  border-top: 1px solid #eee;
+}
+
+.comment-input-container textarea {
+  flex: 1;
+  margin-right: 20rpx;
+  padding: 5px;
+  height: 160rpx;
+  border: 1px solid #ccc;
+  border-radius: 12rpx;
+}
+
+.comment-input-container button {
+  padding: 0 10px;
+  background-color: #e64340;
+  color: white;
+  border: none;
+  line-height: 50rpx;
+  border-radius: 3px;
+}
