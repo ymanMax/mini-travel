@@ -10,6 +10,7 @@ Page({
       { icon: 'balance-list-o', descp: '我的订单', url: '/pages/orderInfo/index' },
       { icon: 'star-o', descp: '我的收藏', url: '/pages/my_collect/index' },
       { icon: 'like-o', descp: '我的点赞', url: '/pages/my_like/index' },
+      { icon: 'coins-o', descp: '我的积分', url: '/pages/points/index' },
       { icon: 'service-o', descp: '联系我们', url: '' },
     ],
   },
