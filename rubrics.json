@@ -1,0 +1,227 @@
+[
+  {
+    "rubric_id": "1",
+    "rubric_content": "个人中心页面必须包含'我的积分'入口，且该入口能够正确跳转到积分详情页",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "动态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求在个人中心页面添加'我的积分'入口，这是核心显性要求，通过页面跳转测试可验证功能是否正确实现"
+  },
+  {
+    "rubric_id": "2",
+    "rubric_content": "个人中心页面的'我的积分'入口必须显示当前积分数量",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求显示当前积分数量，这是核心显性要求，通过代码静态分析可验证数据绑定和渲染逻辑"
+  },
+  {
+    "rubric_id": "3",
+    "rubric_content": "积分详情页路径必须为/pages/points/index",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确指定积分详情页路径，这是核心显性要求，通过代码静态分析可验证路径是否正确"
+  },
+  {
+    "rubric_id": "4",
+    "rubric_content": "积分详情页顶部必须显示积分余额和会员等级",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求页面顶部显示积分余额和等级，这是核心显性要求，通过代码静态分析可验证数据绑定和渲染逻辑"
+  },
+  {
+    "rubric_id": "5",
+    "rubric_content": "积分详情页必须包含'积分获取记录'和'积分兑换'两个标签页，且标签切换功能正常",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "动态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求包含两个标签页，这是核心显性要求，通过标签切换测试可验证功能是否正常"
+  },
+  {
+    "rubric_id": "6",
+    "rubric_content": "积分获取记录必须包含购买门票、发布游记、每日签到等方式获得的积分明细",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求显示通过购买门票、发布游记、每日签到等方式获得的积分明细，这是核心显性要求，通过代码静态分析可验证数据结构"
+  },
+  {
+    "rubric_id": "7",
+    "rubric_content": "积分获取记录必须显示积分来源、时间和金额信息",
+    "必要性": "Important",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "积分记录需要包含完整的明细信息，这是隐性需求，通过代码静态分析可验证数据结构是否完整"
+  },
+  {
+    "rubric_id": "8",
+    "rubric_content": "未登录用户点击“我的积分”入口跳转至登录页（假设项目有登录体系）",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "动态-人工验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "规避未授权访问风险，属权限控制。动态测试未登录状态点击入口，观察是否跳转登录页（唯一动态验证点1），人工确认权限拦截逻辑。"
+  },
+  {
+    "rubric_id": "9",
+    "rubric_content": "积分兑换页面必须展示可兑换的商品列表，包括门票折扣券、特色纪念品等",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求展示可兑换的商品列表，包括门票折扣券、特色纪念品等，这是核心显性要求，通过代码静态分析可验证数据结构"
+  },
+  {
+    "rubric_id": "10",
+    "rubric_content": "积分兑换商品必须显示商品名称、描述、所需积分等信息",
+    "必要性": "Important",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "商品信息需要完整展示，这是隐性需求，通过代码静态分析可验证数据结构是否完整"
+  },
+  {
+    "rubric_id": "11",
+    "rubric_content": "必须实现每日签到功能，用户每日签到可获得积分",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "动态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求添加每日签到功能，这是核心显性要求，通过签到操作测试可验证功能是否正常"
+  },
+  {
+    "rubric_id": "12",
+    "rubric_content": "每日签到功能必须实现连续签到额外奖励机制",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求连续签到有额外奖励，这是核心显性要求，通过代码静态分析可验证奖励逻辑"
+  },
+  {
+    "rubric_id": "13",
+    "rubric_content": "每日签到功能必须防止重复签到，同一用户每天只能签到一次",
+    "必要性": "Essential",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "防止重复签到是签到功能的必要逻辑，这是隐性需求，通过代码静态分析可验证防重复机制"
+  },
+  {
+    "rubric_id": "14",
+    "rubric_content": "积分兑换/扣减操作时校验余额，确保结果不为负数",
+    "必要性": "Essential",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "规避积分透支风险，属核心安全逻辑。静态检查兑换代码，确认有if (balance >= requiredPoints)校验，模型验证负余额拦截逻辑，隐性安全要求。"
+  },
+  {
+    "rubric_id": "15",
+    "rubric_content": "积分等级计算逻辑校验（如等级提升时同步更新权益描述）",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "防等级与权益不匹配风险，属业务逻辑一致性。静态检查等级计算函数，确认等级变更时更新levelBenefits字段，模型验证权益联动逻辑。"
+  },
+  {
+    "rubric_id": "16",
+    "rubric_content": "积分兑换成功后必须扣除相应积分，并更新用户积分余额显示",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "积分扣除和更新是兑换功能的核心逻辑，这是隐性需求，通过代码静态分析可验证积分更新逻辑"
+  },
+  {
+    "rubric_id": "17",
+    "rubric_content": "积分详情页和兑换页面所有接口调用必须通过数据mock形式交互，不能依赖后端服务",
+    "必要性": "Essential",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Explicit",
+    "rationale": "题目明确要求后端服务不通，涉及所有接口调用一律通过数据mock形式交互，这是核心显性要求"
+  },
+  {
+    "rubric_id": "18",
+    "rubric_content": "积分数据必须使用本地存储（wx.setStorageSync/wx.getStorageSync）进行持久化",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "积分数据需要持久化存储，这是隐性需求，通过代码静态分析可验证是否使用本地存储"
+  },
+  {
+    "rubric_id": "19",
+    "rubric_content": "连续签到逻辑基于相对时间差校验（非绝对日期），防用户修改系统时间作弊",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "特殊场景风险规避（时间篡改），属隐含鲁棒性增强。静态检查签到代码，确认用Date.now()计算间隔天数而非固定日期字符串，模型验证时间校验逻辑。"
+  },
+  {
+    "rubric_id": "20",
+    "rubric_content": "积分兑换操作必须有二次确认弹窗，防止误操作",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "二次确认是重要操作的必要保护机制，这是隐性需求，通过代码静态分析可验证确认弹窗逻辑"
+  },
+  {
+    "rubric_id": "21",
+    "rubric_content": "页面加载失败时显示友好错误提示（含重试按钮）",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "提升异常场景用户体验，属容错性设计。静态检查页面onLoad方法，确认有fail回调渲染<view>加载失败<button bindtap='reload'>重试</button></view>，模型验证错误UI渲染。"
+  },
+  {
+    "rubric_id": "22",
+    "rubric_content": "签到按钮点击后显示“已签到”状态（如文字变色+禁用），且状态持续至次日0点",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "动态-人工验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "防止用户重复签到，这是隐性需求，通过代码静态分析可验证按钮disabled属性和文本变量（如{{isSigned}}）逻辑，动态测试签到后状态持续至次日0点。"
+  },
+  {
+    "rubric_id": "23",
+    "rubric_content": "积分记录必须区分收入和支出类型，并用不同颜色或符号标识",
+    "必要性": "Important",
+    "评估维度": "功能要求（functional requirement）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "区分收入和支出类型有助于用户理解积分变化，这是隐性需求，通过代码静态分析可验证样式逻辑"
+  },
+  {
+    "rubric_id": "24",
+    "rubric_content": "签到状态必须在页面刷新后保持正确，不能丢失签到记录",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "签到状态持久化是必要的，这是隐性需求，通过代码静态分析可验证状态保持逻辑"
+  },
+  {
+    "rubric_id": "25",
+    "rubric_content": "mock数据中积分余额为负数时，页面显示“0积分”而非“-10积分”",
+    "必要性": "Important",
+    "评估维度": "鲁棒性（robustness）",
+    "验证方式": "静态-模型验证",
+    "显性(Explicit)隐性（Implicit）": "Implicit",
+    "rationale": "这是隐性需求，通过代码静态分析可验证余额渲染逻辑（如{{balance > 0 ? balance : 0}}），模型验证负值兜底逻辑。"
+  }
+]
